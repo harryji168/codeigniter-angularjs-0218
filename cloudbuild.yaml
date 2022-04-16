@@ -8,8 +8,8 @@ steps:
   args: ['push', 'gcr.io/codeigniter-angularjs-0218/$REPO_NAME:$COMMIT_SHA']
   
 # # Deploy your Flex app from the image in GCR.
-# - name: gcr.io/cloud-builders/gcloud
-#   args: ['app', 'deploy', 'app.yaml', '--image-url=gcr.io/codeigniter-angularjs-0218/$REPO_NAME:$COMMIT_SHA']
+- name: gcr.io/cloud-builders/gcloud
+  args: ['app', 'deploy', 'app.yaml', '--image-url=gcr.io/codeigniter-angularjs-0218/$REPO_NAME:$COMMIT_SHA']
   
 # Note that this build pushes this image.
 images: ['gcr.io/codeigniter-angularjs-0218/$REPO_NAME:$COMMIT_SHA']
