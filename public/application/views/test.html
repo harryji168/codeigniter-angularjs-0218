@@ -1,0 +1,46 @@
+{% include 'includes/header.html' %}
+
+ <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">{{project_title}}</a>
+         
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>{{infomation}}</h1><br/><br/> 
+        <ul class="breadcrumb">{{main_content}}</ul>
+       </div>
+
+      
+
+      <footer>
+<div class="alert" align="center">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  {# footer content #}
+<!-- we define our footer content  -->
+{{ footerContent |nl2br}}
+
+Page rendered in <strong>{{elapsed_time}}</strong> seconds {{memory_usage
+}}
+      
+</div>
+
+     
+
+      </footer>
+
+    </div> <!-- /container -->
+  {% include 'includes/footer.html' %}

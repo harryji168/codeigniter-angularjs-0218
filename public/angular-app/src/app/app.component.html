@@ -1,0 +1,23 @@
+<div>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">Pets</a>
+    <div class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="/owners" class="nav-link">Owners</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="create" class="nav-link">Add Owner</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="pettype" class="nav-link">Pet type</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a routerLink="add" class="nav-link">Add Pet type</a>
+      </li> -->
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <router-outlet></router-outlet>
+  </div>
+</div>

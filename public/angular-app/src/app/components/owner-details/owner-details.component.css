@@ -1,0 +1,9 @@
+input {
+    margin-left: 1rem;   
+}
+button {
+    margin: 1rem;
+}
+#name{
+    width: 300px;
+}

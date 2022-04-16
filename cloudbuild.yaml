@@ -1,0 +1,18 @@
+steps:
+# Build the Docker image.
+- name: gcr.io/cloud-builders/docker
+  args: ['build', '-t', 'gcr.io/codeigniter-angularjs-0218/$REPO_NAME:$COMMIT_SHA', '-f', 'Dockerfile', '.']
+  
+# Push it to GCR.
+- name: gcr.io/cloud-builders/docker
+  args: ['push', 'gcr.io/codeigniter-angularjs-0218/$REPO_NAME:$COMMIT_SHA']
+  
+# # Deploy your Flex app from the image in GCR.
+# - name: gcr.io/cloud-builders/gcloud
+#   args: ['app', 'deploy', 'app.yaml', '--image-url=gcr.io/codeigniter-angularjs-0218/$REPO_NAME:$COMMIT_SHA']
+  
+# Note that this build pushes this image.
+images: ['gcr.io/codeigniter-angularjs-0218/$REPO_NAME:$COMMIT_SHA']
+
+# Build timeout
+timeout: '3600s'

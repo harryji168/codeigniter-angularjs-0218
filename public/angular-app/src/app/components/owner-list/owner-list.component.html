@@ -1,0 +1,48 @@
+<div class="list row">
+    <div class="col-md-8">
+      <!-- -->
+    </div>
+    <div class="col-md-6">
+      <h4>Owners List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let item of owners; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setCurrentOwner(item, i)"
+        > {{item.owner_name}} <br /> <small>{{item.pet_type_name}}</small>
+
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentOwner">
+        <h4>Owners Details</h4>
+        <div>
+          <label><strong>Name:</strong></label> 
+            {{currentOwner.owner_name}}
+        </div>
+        <div>
+            <label><strong>Pet:</strong></label> 
+            {{currentOwner.pet_type_name}}
+        </div>
+      
+        <br />
+        <a class="badge badge-warning" routerLink="/owners/{{currentOwner.id}}">
+          Edit Owner
+        </a>
+
+        <a class="badge badge-success" target="_blank" href="http://localhost/index.php/Owner_Pet/pdf?id={{currentOwner.id}}">
+          PDF
+        </a>
+        
+      </div> 
+  
+      <div *ngIf="!currentOwner">
+        <br />
+        <p>Please click on a Owner</p>
+      </div>
+    </div>
+  </div>
+  
+  

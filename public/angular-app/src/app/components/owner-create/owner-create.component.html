@@ -1,0 +1,47 @@
+<div style="width: 500px; margin: auto;">
+    <div class="submit-form">
+      <div *ngIf="errors" class="alert alert-danger" role="alert">
+        <div *ngFor="let error of errors">{{error}}</div>
+      </div>
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="name">Owner</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            required
+            [(ngModel)]="class.name"
+            name="name"
+            autofocus 
+            required
+          />
+          <input type="hidden" id="id" name="id" value="0" />
+        </div>
+        <div class="form-group"  >
+          
+            <label for="name" *ngFor="let item of pettypes; let i = index">
+             <input
+              type="radio"
+              name="pets"  
+              id="pets"            
+              value={{item.pet_type_name}}   
+              [(ngModel)]="class.pets"           
+            />
+            {{item.pet_type_name}}</label>        
+          </div>         
+          <button (click)="handleClear()" class="btn btn-info">Reset</button>
+        <button (click)="createClass()" class="btn btn-success">Add Owner</button>
+        
+      </div>
+  
+      <div *ngIf="submitted">
+        <div class="alert alert-success">You successfully added a owner!</div>
+        <button class="btn btn-success" (click)="newClass()">Add New Owner</button>
+        &nbsp;
+        <button class="btn btn-success" (click)="router.navigate(['/owners']);">View All Owners</button>
+      </div>
+    </div>
+  </div>
+  
+  

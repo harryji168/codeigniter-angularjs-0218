@@ -1,0 +1,6 @@
+{
+    "/api": {
+      "target": "http://localhost:8080/codeigniter-angularjs-0218/index.php/api/owner/owners",
+      "secure": false
+     }
+}

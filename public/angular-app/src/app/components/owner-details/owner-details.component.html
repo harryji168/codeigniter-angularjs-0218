@@ -1,0 +1,52 @@
+<div style="width: 500px; margin: auto;">
+    <div *ngIf="currentOwner" class="edit-form">
+      <h4>Update Owner Detail</h4>
+      <div *ngIf = "showMsg" class="alert alert-success" role="alert">
+        {{message}}
+      </div>
+      <form>
+        <div class="form-group">
+          <label for="title">Owner</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            [(ngModel)]="currentOwner.owner_name"
+            name="name"
+            autofocus 
+            required
+          />
+        </div>
+        <div class="form-group">          
+            <label for="name" *ngFor="let item of pettypes; let i = index">
+              <input
+               type="radio"
+               name="pets"  
+               id="pets"   
+               value={{item.pet_type_name}}             
+               [(ngModel)]="currentOwner.pet_type_name"    
+               [attr.checked]="currentOwner.pet_type_name == item.pet_type_name ? true : null"
+             />
+             {{item.pet_type_name}}</label>
+          </div>       
+      </form>
+      <button class="badge badge-danger mr-2" (click)="deleteOwner()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success"
+        (click)="updateOwner()"
+      >
+        Update
+      </button>
+      <p></p>
+    </div>
+  
+    <div *ngIf="!currentOwner">
+      <br />
+      <p>This Owner detail is not accessible</p>
+    </div>
+  </div>
+  
